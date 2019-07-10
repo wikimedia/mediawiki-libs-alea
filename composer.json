@@ -1,0 +1,59 @@
+{
+    "name": "wikimedia/alea",
+    "description": "PHP port of the (non-cryptographic) Alea pseudo-random number generator",
+    "keywords": ["prng","alea"],
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/wikimedia/alea",
+    "authors": [
+        {
+            "name": "Johannes Baagøe",
+            "email": "baagoe@baagoe.org"
+        },
+        {
+            "name": "C. Scott Ananian",
+            "email": "cananian@wikimedia.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Wikimedia\\Alea\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wikimedia\\Alea\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">= 7.2.0"
+    },
+    "require-dev": {
+		"jakub-onderka/php-parallel-lint": "1.0.0",
+		"jakub-onderka/php-console-highlighter": "0.3.2",
+		"mediawiki/mediawiki-codesniffer": "24.0.0",
+		"mediawiki/mediawiki-phan-config": "0.4.0",
+		"mediawiki/minus-x": "0.3.1",
+		"ockcyp/covers-validator": "0.5.1 || 0.6.1",
+		"phan/phan": "^1.2",
+		"phpunit/phpunit": "^6.5",
+		"wikimedia/remex-html": "2.0.2",
+		"wikimedia/testing-access-wrapper": "~1.0"
+    },
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpunit",
+			"@phan",
+			"covers-validator",
+			"phpcs -sp",
+			"minus-x check ."
+		],
+		"cover": "phpunit --coverage-html coverage",
+		"fix": [
+			"minus-x fix .",
+			"phpcbf"
+		],
+		"phan": "PHAN_DISABLE_XDEBUG_WARN=1 phan --allow-polyfill-parser"
+	}
+}
