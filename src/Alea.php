@@ -116,7 +116,7 @@ class Alea {
 	/**
 	 * Create a new generator synced with some exported state.
 	 *
-		* @param array $i The exported state of some other Alea PRNG.
+	 * @param array $i The exported state of some other Alea PRNG.
 	 * @return Alea a new Alea PRNG.
 		*/
 	static function createWithState( array $i ) : Alea {
