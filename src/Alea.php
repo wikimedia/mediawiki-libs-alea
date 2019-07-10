@@ -119,7 +119,7 @@ class Alea {
 	 * @param array $i The exported state of some other Alea PRNG.
 	 * @return Alea a new Alea PRNG.
 		*/
-	static function createWithState( array $i ) : Alea {
+	public static function createWithState( array $i ) : Alea {
 		$random = new Alea();
 		$random->importState( $i );
 		return $random;

@@ -5,8 +5,15 @@ namespace Wikimedia\Alea\Tests;
 
 use Wikimedia\Alea\Alea;
 
+/**
+ * @coversDefaultClass Wikimedia\Alea\Alea
+ */
 class AleaTest extends \PHPUnit\Framework\TestCase {
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::random()
+	 */
 	public function testTwoSeededValuesAreTheSame() {
 		// make sure two seeded values are the same
 
@@ -22,15 +29,29 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertNotEquals( $a, $b, 'return values of different seed' );
 
 		// test return values directly
-		$this->assertEquals( $prng1->random(), $prng3->random(), 'same seed called again' );
+		$this->assertEquals(
+			$prng1->random(), $prng3->random(), 'same seed called again'
+		);
 
-		$this->assertNotEquals( $prng1->random(), $prng2->random(), 'different seed again' );
-		$this->assertNotEquals( $prng1->random(), $prng3->random(), 'prng1 called more times than prng3' );
-		$this->assertNotEquals( $prng2->random(), $prng3->random(), 'prng3 called again' );
+		$this->assertNotEquals(
+			$prng1->random(), $prng2->random(), 'different seed again'
+		);
+		$this->assertNotEquals(
+			$prng1->random(), $prng3->random(), 'prng1 called more times than prng3'
+		);
+		$this->assertNotEquals(
+			$prng2->random(), $prng3->random(), 'prng3 called again'
+		);
 
-		$this->assertEquals( $prng1->random(), $prng3->random(), 'call counts equal again' );
+		$this->assertEquals(
+			$prng1->random(), $prng3->random(), 'call counts equal again'
+		);
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::random()
+	 */
 	public function testKnownValues1() {
 		$prng1 = new Alea( 12345 );
 
@@ -46,6 +67,10 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->random(), $values[ 2 ], 'check value 3' );
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::random()
+	 */
 	public function testKnownValues2() {
 		// First example from Johannes' website
 		$prng1 = new Alea( 'my', 3, 'seeds' );
@@ -62,6 +87,10 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->random(), $values[ 2 ], 'check value 3' );
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::random()
+	 */
 	public function testKnownValues3() {
 		// Second example from Johannes' website
 		$prng1 = new Alea( 1277182878230 );
@@ -78,6 +107,10 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->random(), $values[ 2 ], 'check value 3' );
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::uint32()
+	 */
 	public function testUint32() {
 		$prng1 = new Alea( 12345 );
 
@@ -93,6 +126,10 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->uint32(), $values[ 2 ], 'check value 3' );
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::uint32()
+	 */
 	public function testUint32_2() {
 		// Third example from Johannes' website
 		$prng1 = new Alea( '' );
@@ -109,7 +146,11 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->uint32(), $values[ 2 ], 'check value 3' );
 	}
 
-	public function testFrac53() {
+	/**
+	 * @covers ::__construct()
+	 * @covers ::fract53()
+	 */
+	public function testFract53() {
 		$prng1 = new Alea( 12345 );
 
 		// predefined numbers
@@ -124,7 +165,11 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->fract53(), $values[ 2 ], 'check value 3' );
 	}
 
-	public function testFrac53_2() {
+	/**
+	 * @covers ::__construct()
+	 * @covers ::fract53()
+	 */
+	public function testFract53_2() {
 		// Fourth example from Johannes' website
 		$prng1 = new Alea( '' );
 
@@ -140,6 +185,12 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->fract53(), $values[ 2 ], 'check value 3' );
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::importState()
+	 * @covers ::exportState()
+	 * @covers ::createWithState()
+	 */
 	public function testImportState() {
 		// Import with Alea::importState()
 
@@ -159,6 +210,11 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $prng1->random(), $prng4->random(), 'synced prngs, call 3' );
 	}
 
+	/**
+	 * @covers ::__construct()
+	 * @covers ::importState()
+	 * @covers ::exportState()
+	 */
 	public function testResyncTwoDifferingPrngs() {
 		// Resync two differring prngs with Alea::importState()
 		$prng1 = new Alea( 200000 );
@@ -166,16 +222,28 @@ class AleaTest extends \PHPUnit\Framework\TestCase {
 
 		// generate a few numbers
 
-		$this->assertNotEquals( $prng1->random(), $prng2->random(), 'just generating randomness, call 1' );
-		$this->assertNotEquals( $prng1->random(), $prng2->random(), 'just generating randomness, call 2' );
-		$this->assertNotEquals( $prng1->random(), $prng2->random(), 'just generating randomness, call 3' );
+		$this->assertNotEquals(
+			$prng1->random(), $prng2->random(), 'just generating randomness, call 1'
+		);
+		$this->assertNotEquals(
+			$prng1->random(), $prng2->random(), 'just generating randomness, call 2'
+		);
+		$this->assertNotEquals(
+			$prng1->random(), $prng2->random(), 'just generating randomness, call 3'
+		);
 
 		// sync prng2 to prng1
 		$prng2->importState( $prng1->exportState() );
 
-		$this->assertEquals( $prng1->random(), $prng2->random(), 'imported prng, call 1' );
-		$this->assertEquals( $prng1->random(), $prng2->random(), 'imported prng, call 2' );
-		$this->assertEquals( $prng1->random(), $prng2->random(), 'imported prng, call 3' );
+		$this->assertEquals(
+			$prng1->random(), $prng2->random(), 'imported prng, call 1'
+		);
+		$this->assertEquals(
+			$prng1->random(), $prng2->random(), 'imported prng, call 2'
+		);
+		$this->assertEquals(
+			$prng1->random(), $prng2->random(), 'imported prng, call 3'
+		);
 
 		// let's test they still sync up if called non-sequentially
 		$prng1->random();

@@ -8,11 +8,14 @@ namespace Wikimedia\Alea;
  * and smushes it together to create a single numeric seed.
  */
 class Mash {
+
 	/** @var int */
 	private $n;
+
 	public function __construct() {
 		$this->n = 0xefc8249d;
 	}
+
 	/**
 	 * Mash in some more data.
 	 * @param mixed $data Anything that can be an argument to `strval`.
