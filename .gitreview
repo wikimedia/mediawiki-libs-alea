@@ -1,6 +1,6 @@
 [gerrit]
 host=gerrit.wikimedia.org
 port=29418
-project=mediawiki/libs/Alea.git
+project=mediawiki/libs/alea.git
 track=1
 defaultrebase=0
