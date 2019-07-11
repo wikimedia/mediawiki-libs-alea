@@ -53,5 +53,5 @@ Read more on [Johannes' site](https://web.archive.org/web/20120619002808/http://
 The port to PHP was initially done by C. Scott Ananian and is
 (c) Copyright 2019 Wikimedia Foundation.
 
-Both the original zest codebase and this port are distributed under
+Both the original alea codebase and this port are distributed under
 the MIT license; see LICENSE for more info.
