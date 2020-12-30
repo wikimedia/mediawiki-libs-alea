@@ -85,7 +85,7 @@ class Alea {
 		return $this->random() +
 			// Using `| 0` to get a truncating conversion to int32 is
 			// unconventional, but perfectly legit.
-			// @phan-suppress-next-line PhanTypeInvalidBitwiseBinaryOperator
+			// @phan-suppress-next-line PhanTypeInvalidBitwiseBinaryOperator,PhanTypeInvalidLeftOperandOfBitwiseOp
 			( $this->random() * 0x200000 | 0 ) * 1.1102230246251565e-16; // 2^-53
 	}
 
