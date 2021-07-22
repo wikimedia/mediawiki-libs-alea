@@ -89,7 +89,7 @@ class Alea {
 			( $this->random() * 0x200000 | 0 ) * 1.1102230246251565e-16; // 2^-53
 	}
 
-	public static function version() : string {
+	public static function version(): string {
 		return 'Alea 0.9';
 	}
 
@@ -122,7 +122,7 @@ class Alea {
 	 * @param array $i The exported state of some other Alea PRNG.
 	 * @return Alea a new Alea PRNG.
 	 */
-	public static function createWithState( array $i ) : Alea {
+	public static function createWithState( array $i ): Alea {
 		$random = new Alea();
 		$random->importState( $i );
 		return $random;
