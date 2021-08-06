@@ -3,14 +3,22 @@ declare( strict_types = 1 );
 
 namespace Wikimedia\Alea;
 
+/**
+ * Alea non-cryptographic pseudo-random number generator.
+ *
+ * Compatible with https://www.npmjs.com/package/alea
+ *
+ * From http://baagoe.com/en/RandomMusings/javascript/
+ *
+ * Archived at:
+ * * https://web.archive.org/web/20120619002808/http://baagoe.org/en/wiki/Better_random_numbers_for_javascript
+ * * https://web.archive.org/web/20120502223108/http://baagoe.com/en/RandomMusings/javascript/
+ */
 class Alea {
 
-	// From http://baagoe.com/en/RandomMusings/javascript/
-	// Archived at:
-	// https://web.archive.org/web/20120619002808/http://baagoe.org/en/wiki/Better_random_numbers_for_javascript
-	// https://web.archive.org/web/20120502223108/http://baagoe.com/en/RandomMusings/javascript/
-
-	private $s0, $s1, $s2;
+	private $s0;
+	private $s1;
+	private $s2;
 	private $c;
 	private $args;
 

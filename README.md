@@ -51,7 +51,7 @@ for npm by [coverslide](https://github.com/coverslide).
 Read more on [Johannes' site](https://web.archive.org/web/20120619002808/http://baagoe.org/en/wiki/Better_random_numbers_for_javascript).
 
 The port to PHP was initially done by C. Scott Ananian and is
-(c) Copyright 2019 Wikimedia Foundation.
+(c) Copyright 2019-2021 Wikimedia Foundation.
 
 Both the original alea codebase and this port are distributed under
 the MIT license; see LICENSE for more info.
