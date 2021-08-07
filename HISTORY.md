@@ -1,6 +1,6 @@
 # Release History
 
-## Alea x.x.x (not yet released)
+## Alea 0.9.3 (2021-08-07)
 * Update dependencies.
 
 ## Alea 0.9.2
