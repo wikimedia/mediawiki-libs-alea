@@ -1,6 +1,6 @@
 # Release History
 
-## Alea x.x.x (not yet released)
+## Alea 1.0.0 (2023-02-24)
 * Drop PHP 7.2 and PHP 7.3 support.
 * Update dependencies.
 

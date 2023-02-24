@@ -98,7 +98,7 @@ class Alea {
 	}
 
 	public static function version(): string {
-		return 'Alea 0.9';
+		return 'Alea 1.0';
 	}
 
 	public function args(): array {
