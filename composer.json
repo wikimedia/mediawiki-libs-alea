@@ -15,7 +15,8 @@
 		},
 		{
 			"name": "C. Scott Ananian",
-			"email": "cananian@wikimedia.org"
+			"email": "cananian@wikimedia.org",
+			"homepage": "https://cscott.net"
 		}
 	],
 	"autoload": {
