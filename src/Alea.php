@@ -16,11 +16,11 @@ namespace Wikimedia\Alea;
  */
 class Alea {
 
-	private $s0;
-	private $s1;
-	private $s2;
-	private $c;
-	private $args;
+	private float $s0;
+	private float $s1;
+	private float $s2;
+	private float $c;
+	private array $args;
 
 	/**
 	 * Create a new pseudo-random number generator.
