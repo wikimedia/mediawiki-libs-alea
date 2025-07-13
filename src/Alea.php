@@ -29,9 +29,6 @@ class Alea {
 	 */
 	public function __construct( ...$args ) {
 		// Johannes Baagøe <baagoe@baagoe.com>, 2010
-		$s0 = 0;
-		$s1 = 0;
-		$s2 = 0;
 		$c = 1;
 
 		if ( count( $args ) == 0 ) {
