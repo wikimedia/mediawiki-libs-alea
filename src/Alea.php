@@ -88,6 +88,8 @@ class Alea {
 	 */
 	public function fract53(): float {
 		return $this->random() +
+			// FIXME truncation gives php deprecation notice: Implicit conversion from float to int loses precision
+			// TODO Enable displayDetailsOnTestsThatTriggerDeprecations in phpunit.xml.dist when fixed
 			// Using `| 0` to get a truncating conversion to int32 is
 			// unconventional, but perfectly legit.
 			// @phan-suppress-next-line PhanTypeInvalidBitwiseBinaryOperator,PhanTypeInvalidLeftOperandOfBitwiseOp
