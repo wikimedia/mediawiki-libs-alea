@@ -1,5 +1,7 @@
 # Release History
 
+## Alea x.x.x (not yet released)
+
 ## Alea 1.0.1 (2026-01-08)
 * Drop support for PHP < 8.1
 * Update dependencies
